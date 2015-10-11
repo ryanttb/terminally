@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @page.url %>
+</p>
+
+<p>
+  <strong>Cache text:</strong>
+  <%= @page.cache_text %>
+</p>
+
+<p>
+  <strong>Cache image:</strong>
+  <%= @page.cache_image %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

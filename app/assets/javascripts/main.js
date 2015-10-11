@@ -1,3 +1,4 @@
+/*
 $( function( ) {
   var canvas = $( '<canvas width="4" height="5" />' );
 
@@ -35,3 +36,4 @@ $( function( ) {
     return false;
   } );
 } );
+*/

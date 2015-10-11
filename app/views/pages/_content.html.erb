@@ -1,0 +1,1 @@
+<%= raw( strip_tags( sanitize @content, tags: %w(p div h1 h2 h3) ).gsub( /[\n]+\s*/, "NEWLINE" ).gsub( /\s+/, ' ' ).gsub( /NEWLINE/, "\n" ) ) %>

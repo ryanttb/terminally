@@ -7,12 +7,12 @@
 
 <p>
   <strong>Cache text:</strong>
-  <%= @page.cache_text %>
+  <%= link_to 'Text Cache URL', @page.cache_text %>
 </p>
 
 <p>
   <strong>Cache image:</strong>
-  <%= @page.cache_image %>
+  <%= link_to 'Image Cache URL', @page.cache_image %>
 </p>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |

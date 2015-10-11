@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
+  <%= image_tag 'characters.png', id: 'characters' %>
+
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
+    <%= f.button 'Get', type: 'button' %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, rows: 6, cols: 64 %>
   </div>
   <div class="field">
     <%= f.label :cache_text %><br>
-    <%= f.text_area :cache_text %>
+    <%= f.text_area :cache_text, rows: 6, cols: 64 %>
   </div>
   <div class="field">
     <%= f.label :cache_image %><br>
-    <%= f.text_area :cache_image %>
+    <%= f.text_area :cache_image, rows: 6, cols: 64 %>
   </div>
   <div class="actions">
     <%= f.submit %>

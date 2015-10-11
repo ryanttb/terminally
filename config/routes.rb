@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :pages do
     collection do
       get 'content'
+      post 'onebit'
     end
   end
 

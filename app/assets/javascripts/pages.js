@@ -20,7 +20,22 @@ $( function( ) {
   $( '#page_content' ).change( function( ) {
     var singleLine = $( '#page_content' ).val().replace( /\s+/g, ' ' );
     $( '#page_cache_text' ).val( 'data:,' + window.encodeURIComponent( singleLine ) );
-    $( '#page_cache_image' ).val( toImage( singleLine ) );
+
+    $.ajax( '/pages/onebit', {
+      method: 'POST',
+      data: {
+        page: {
+          cache_image: toImage( singleLine )
+        }
+      },
+      success: function( result ) {
+        $( '#page_cache_image' ).val( result );
+      },
+      error: function( xhr, textStatus ) {
+        alert( textStatus );
+      }
+    } );
+
   } );
 
   function toImage( text ) {

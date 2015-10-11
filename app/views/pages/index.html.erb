@@ -16,8 +16,8 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.url %></td>
-        <td><%= page.cache_text %></td>
-        <td><%= page.cache_image %></td>
+        <td><%= link_to 'Text Cache URL', page.cache_text %></td>
+        <td><%= link_to 'Image Cache URL', page.cache_image %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>
         <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,6 +1,8 @@
 require 'open-uri'
 require 'net/http'
 
+require 'base64'
+
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
@@ -80,7 +82,6 @@ class PagesController < ApplicationController
 
       doc = Nokogiri::HTML( @content )
       doc.css( 'style,script' ).remove
-      puts doc.to_html
       @content = doc.to_html #HTMLEntities.new.decode( doc.to_html )
     }
 
@@ -92,6 +93,23 @@ class PagesController < ApplicationController
         render json: { source_text: @content }
       }
     end
+  end
+
+  # POST /pages/onebit
+  def onebit
+    content_base64 = page_params[ :cache_image ].split( ',' )[1]
+    content_data = Base64.decode64 content_base64
+    content_filename = Dir::Tmpname.make_tmpname ['/tmp/onebit','.png'], nil
+    File.open( content_filename, 'wb' ) { |f|
+      f.write content_data
+    }
+
+    %x[convert #{content_filename} -monochrome -depth 1 -type Bilevel #{content_filename}]
+
+    content_data = File.binread( content_filename )
+    content_base64 = Base64.strict_encode64 content_data
+
+    render text: "data:image/png;base64,#{content_base64}"
   end
 
   private

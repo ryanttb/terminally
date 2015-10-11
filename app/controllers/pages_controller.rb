@@ -81,7 +81,7 @@ class PagesController < ApplicationController
       } ).read.encode
 
       doc = Nokogiri::HTML( @content )
-      doc.css( 'style,script' ).remove
+      doc.css( 'style,script,nav' ).remove
       @content = doc.to_html #HTMLEntities.new.decode( doc.to_html )
     }
 

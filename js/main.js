@@ -5,7 +5,7 @@ $( function( ) {
   var characters = $( '#characters' );
   
   $( '#convert' ).submit( function( ) {
-    var text = $( '#text' ).val();
+    var text = $( '#text' ).val().toLowerCase();
 
     var width = outputCharWidth;
     var height = Math.ceil( text.length / outputCharWidth );
@@ -18,7 +18,8 @@ $( function( ) {
     context.mozImageSmoothingEnabled = false;
     context.msImageSmoothingEnabled = false;
 
-    context.clearRect( 0, 0, width, height );
+    context.fillStyle = '#ffffff';
+    context.fillRect( 0, 0, width * 4, height * 5 );
 
     var i = 0, code, row, col;
 

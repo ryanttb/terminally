@@ -46,8 +46,6 @@ $( function( ) {
   function toImage( text ) {
     var characters = $( '#characters' );
     
-    text = text.toLowerCase();
-
     var width = Math.ceil( Math.sqrt( text.length ) );
     var height = Math.ceil( text.length / width );
 

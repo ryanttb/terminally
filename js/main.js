@@ -1,5 +1,4 @@
 $( function( ) {
-  var outputCharWidth = 128;
   var canvas = $( '<canvas width="4" height="5" />' );
 
   var characters = $( '#characters' );
@@ -7,8 +6,8 @@ $( function( ) {
   $( '#convert' ).submit( function( ) {
     var text = $( '#text' ).val().toLowerCase();
 
-    var width = outputCharWidth;
-    var height = Math.ceil( text.length / outputCharWidth );
+    var width = Math.ceil( Math.sqrt( text.length ) );
+    var height = Math.ceil( text.length / width );
 
     canvas[ 0 ].width = width * 4;
     canvas[ 0 ].height = height * 5;
@@ -26,8 +25,8 @@ $( function( ) {
     for ( ; i < text.length; i++ ) {
       code = text.charCodeAt( i );
 
-      row = Math.floor( i / outputCharWidth );
-      col = i % outputCharWidth;
+      row = Math.floor( i / width );
+      col = i % width;
 
       context.drawImage(characters[ 0 ], (code % 16) * 4, ( Math.floor( code / 16 ) - 2 ) * 5, 4, 5, col * 4, row * 5, 4, 5 );
     }

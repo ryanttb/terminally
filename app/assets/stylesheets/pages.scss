@@ -8,13 +8,11 @@ body.pages {
   }
 
   textarea {
-    width: 100%;
+    width: 48%;
   }
 
-  &.show {
-    .cache-image {
-      float: right;
-      max-width: 50%;
-    }
+  .cache-image {
+    float: right;
+    max-width: 50%;
   }
 }

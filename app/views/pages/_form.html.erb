@@ -13,23 +13,23 @@
 
   <%= image_tag 'characters.png', id: 'characters' %>
 
+  <%= f.hidden_field :cache_text %>
+  <%= f.hidden_field :cache_image %>
+
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
     <%= f.button 'Get', type: 'button' %>
   </div>
   <div class="field">
+    <%= image_tag @page.cache_image, class: 'cache-image' %>
     <%= f.label :content %><br>
-    <%= f.text_area :content, rows: 6, cols: 64 %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :cache_text %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :cache_image %>
-    <%= image_tag @page.cache_image %>
+    <%= f.text_area :content, rows: 48, cols: 64 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button 'Update Cache', type: 'button' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save Page', id: 'page_submit' %>
   </div>
 <% end %>

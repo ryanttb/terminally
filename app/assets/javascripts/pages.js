@@ -18,6 +18,8 @@ $( function( ) {
   } );
 
   $( '#page_content' ).change( function( ) {
+    $( '#page_submit' ).prop( 'disabled', true );
+
     var singleLine = $( '#page_content' ).val().replace( /\s+/g, ' ' );
     $( '#page_cache_text' ).val( 'data:,' + window.encodeURIComponent( singleLine ) );
 
@@ -30,10 +32,13 @@ $( function( ) {
       },
       success: function( result ) {
         $( '#page_cache_image' ).val( result );
+        $( '.cache-image' ).prop( 'src', result );
       },
       error: function( xhr, textStatus ) {
         alert( textStatus );
       }
+    } ).done( function( ) {
+      $( '#page_submit' ).prop( 'disabled', false );
     } );
 
   } );

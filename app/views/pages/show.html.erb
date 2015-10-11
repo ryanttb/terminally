@@ -15,5 +15,11 @@
   <%= link_to 'Image Cache URL', @page.cache_image %>
 </p>
 
+<%= image_tag @page.cache_image, alt: '', class: 'cache-image' %>
+
+<p>
+  <%= raw( @page.content.gsub( "\n", '<br>' ) )%>
+</p>
+
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

@@ -1,3 +1,20 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.pages {
+  #page_url {
+    width: 80%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  &.show {
+    .cache-image {
+      float: right;
+      max-width: 50%;
+    }
+  }
+}
